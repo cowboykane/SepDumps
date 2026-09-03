@@ -29,6 +29,7 @@ while running:
     if player.colliderect(wall):
         print("Collision detected!")
     
+    
     screen.fill(("black"))       
     pygame.draw.rect(screen, (255, 100, 100), player) # x, y, width, height
     pygame.draw.rect(screen, (100, 200, 200), wall)
