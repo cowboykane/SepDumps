@@ -9,7 +9,7 @@ clock = pygame.time.Clock()
 
 # Jumping
 velocity_y = 5
-gravity = 0.10
+gravity = 0.5
 is_grounded = False
 
 player = pygame.Rect(50, 50, 40, 40)
@@ -29,15 +29,13 @@ while running:
         player.x -= 5
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         player.x += 5
-    if keys[pygame.K_UP] or keys[pygame.K_w]:
-        player.y -= 5
-    if keys[pygame.K_DOWN] or keys[pygame.K_s]:
-        player.y += 5
-    if keys[pygame.K_SPACE]:
-        player.y += 10
+    if keys[pygame.K_SPACE] and is_grounded:
+        velocity_y = -10
         
     velocity_y += gravity
     player.y += velocity_y
+    
+    is_grounded = False
     
     if player.colliderect(floor):
         if velocity_y > 0:

@@ -1,0 +1,10 @@
+# uhhhhhh emf-schedular 
+
+pipeline_name: emf-schedular-deploy
+stages:
+  - name: build
+  - command: docker build -t emf-schedular .
+  - name: test
+  - command: pytest
+  - name: deploy
+  - command: az webapp deploy
